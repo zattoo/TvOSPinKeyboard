@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pRN-y3-g5B">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="G3z-ZW-rWd">
+            <objects>
+                <viewController id="pRN-y3-g5B" customClass="ViewController" customModule="TvOSPinKeyboardExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A5c-0l-uZI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ruw-lh-bBv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v07-6D-64t">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXO-oQ-hpF">
+                                <rect key="frame" x="757" y="497" width="407" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Introduce Pin Code"/>
+                                <connections>
+                                    <action selector="pinButtonWasPressed:" destination="pRN-y3-g5B" eventType="primaryActionTriggered" id="8yB-ZQ-fcl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbq-Sx-vfk">
+                                <rect key="frame" x="960" y="626" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fXO-oQ-hpF" firstAttribute="centerX" secondItem="v07-6D-64t" secondAttribute="centerX" id="EOm-n0-37x"/>
+                            <constraint firstItem="fXO-oQ-hpF" firstAttribute="centerY" secondItem="v07-6D-64t" secondAttribute="centerY" id="L1A-eu-QpI"/>
+                            <constraint firstItem="rbq-Sx-vfk" firstAttribute="centerX" secondItem="v07-6D-64t" secondAttribute="centerX" id="pgQ-TE-a4b"/>
+                            <constraint firstItem="rbq-Sx-vfk" firstAttribute="top" secondItem="fXO-oQ-hpF" secondAttribute="bottom" constant="43" id="w6L-zb-OZL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pinLabel" destination="rbq-Sx-vfk" id="SgV-3M-Ikx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eQA-ri-zA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5" y="49"/>
+        </scene>
+    </scenes>
+</document>

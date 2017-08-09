@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :tvos, '9.0'
+use_frameworks!
+
+target 'TvOSPinKeyboardExample' do
+  pod 'TvOSPinKeyboard', :path => '..'
+end
+
