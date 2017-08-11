@@ -65,6 +65,7 @@ Apart from the title, subtitle, TvOSPinKeyboard offers a wide level of customiza
 Customizable properties:
 
 - backgroundView
+- pinLength
 - titleFont
 - titleColor
 - subtitleFont
