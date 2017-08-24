@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'TvOSPinKeyboard'
   s.author = 'Zattoo'
-  s.version = '0.0.1'
+  s.version = '1.0.0'
   s.license = 'MIT'
   s.summary = 'PIN keyboard for tvOS'
   s.homepage = 'https://github.com/zattoo/TvOSPinKeyboard'
