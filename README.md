@@ -25,7 +25,7 @@ platform :tvos, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'TvOSPinKeyboard', :git => 'https://github.com/zattoo/TvOSPinKeyboard.git'
+    pod 'TvOSPinKeyboard', '~> 1.0.0'
 end
 ```
 
