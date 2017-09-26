@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.0] - 2017-09-26
+
+Migrate to Swift 4
+
 ## [1.0.0] - 2017-08-24
 
 Bump to 1.0.0 before sending to CocoaPods repo specs
