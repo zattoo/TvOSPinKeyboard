@@ -74,10 +74,10 @@ open class TvOSPinKeyboardViewController: UIViewController {
         didSet {
             guard let pinStackLabels = pinStack.arrangedSubviews as? [UILabel] else { return }
             for (index, pinLabel) in pinStackLabels.enumerated() {
-                pinLabel.text = index < introducedPin.characters.count ? "•" : nil
+                pinLabel.text = index < introducedPin.count ? "•" : nil
             }
             
-            if introducedPin.characters.count == pinLength {
+            if introducedPin.count == pinLength {
                 dismiss(animated: true, completion: {
                     self.delegate?.pinKeyboardDidEndEditing(pinCode: self.introducedPin)
                 })
@@ -252,14 +252,14 @@ open class TvOSPinKeyboardViewController: UIViewController {
     
     @objc
     func numPadButtonWasPressed(sender: FocusTvButton) {
-        guard introducedPin.characters.count < pinLength else { return }
+        guard introducedPin.count < pinLength else { return }
         guard let numPadValue = sender.titleLabel?.text else { return }
         introducedPin += numPadValue
     }
     
     @objc
     func deleteButtonWasPressed(sender: FocusTvButton) {
-        introducedPin = String(introducedPin.characters.dropLast())
+        introducedPin = String(introducedPin.dropLast())
     }
 }
 
