@@ -31,36 +31,37 @@ private let pinStackSpacing = CGFloat(30)
 private let numpadButtonsStackSpacing = CGFloat(5)
 private let numpadButtonsPadding = CGFloat(15)
 
+@objc
 open class TvOSPinKeyboardViewController: UIViewController {
     
-    public var pinLength = defaultPinLength
+    @objc public var pinLength = defaultPinLength
 
-    public weak var delegate: TvOSPinKeyboardViewDelegate?
+    @objc public weak var delegate: TvOSPinKeyboardViewDelegate?
     
-    public var backgroundView: UIView!
+    @objc public var backgroundView: UIView!
     
-    public var titleFont = defaultTitleFont
-    public var titleColor = defaultTitleColor
+    @objc public var titleFont = defaultTitleFont
+    @objc public var titleColor = defaultTitleColor
     
-    public var subtitleFont = defaultSubtitleFont
-    public var subtitleColor = defaultSubtitleColor
+    @objc public var subtitleFont = defaultSubtitleFont
+    @objc public var subtitleColor = defaultSubtitleColor
     
-    public var pinFont = defaultPinFont
-    public var pinColor = defaultPinColor
-    public var pinBackgroundColor = defaultPinBackgroundColor
+    @objc public var pinFont = defaultPinFont
+    @objc public var pinColor = defaultPinColor
+    @objc public var pinBackgroundColor = defaultPinBackgroundColor
     
-    public var numpadButtons = defaultNumpadButtons
-    public var numpadFont = defaultNumpadFont
+    @objc public var numpadButtons = defaultNumpadButtons
+    @objc public var numpadFont = defaultNumpadFont
     
-    public var deleteButtonTitle = defaultDeleteButtonTitle
-    public var deleteButtonFont = defaultNumpadFont
+    @objc public var deleteButtonTitle = defaultDeleteButtonTitle
+    @objc public var deleteButtonFont = defaultNumpadFont
     
-    public var buttonsNormalTitleColor = defaultNumpadNormalTitleColor
-    public var buttonsFocusedTitleColor = defaultNumpadFocusedTitleColor
-    public var buttonsFocusedBackgroundColor = defaultNumpadFocusedBackgroundColor
-    public var buttonsFocusedBackgroundEndColor: UIColor?
-    public var buttonsNormalBackgroundColor = defaultNumpadNormalBackgroundColor
-    public var buttonsNormalBackgroundEndColor: UIColor?
+    @objc public var buttonsNormalTitleColor = defaultNumpadNormalTitleColor
+    @objc public var buttonsFocusedTitleColor = defaultNumpadFocusedTitleColor
+    @objc public var buttonsFocusedBackgroundColor = defaultNumpadFocusedBackgroundColor
+    @objc public var buttonsFocusedBackgroundEndColor: UIColor?
+    @objc public var buttonsNormalBackgroundColor = defaultNumpadNormalBackgroundColor
+    @objc public var buttonsNormalBackgroundEndColor: UIColor?
     
     private var subject: String?
     private var message: String?
@@ -85,7 +86,7 @@ open class TvOSPinKeyboardViewController: UIViewController {
         }
     }
     
-    convenience public init(withTitle title: String, message: String) {
+    @objc convenience public init(withTitle title: String, message: String) {
         self.init()
         
         self.subject = title
