@@ -8,7 +8,8 @@
 
 import Foundation
 
+@objc
 public protocol TvOSPinKeyboardViewDelegate: class {
     
-    func pinKeyboardDidEndEditing(pinCode: String)
+    @objc func pinKeyboardDidEndEditing(pinKeyboardVC: TvOSPinKeyboardViewController, pinCode: String)
 }
