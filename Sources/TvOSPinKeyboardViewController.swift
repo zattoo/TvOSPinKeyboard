@@ -63,6 +63,8 @@ open class TvOSPinKeyboardViewController: UIViewController {
     @objc public var buttonsNormalBackgroundColor = defaultNumpadNormalBackgroundColor
     @objc public var buttonsNormalBackgroundEndColor: UIColor?
     
+    @objc public var shouldDismissAfterPinInsertion = true
+    
     private var subject: String?
     private var message: String?
     private var titleLabel: UILabel!
@@ -79,9 +81,13 @@ open class TvOSPinKeyboardViewController: UIViewController {
             }
             
             if introducedPin.count == pinLength {
-                dismiss(animated: true, completion: {
-                    self.delegate?.pinKeyboardDidEndEditing(pinCode: self.introducedPin)
-                })
+                if shouldDismissAfterPinInsertion {
+                    dismiss(animated: true, completion: {
+                        self.delegate?.pinKeyboardDidEndEditing(self, pinCode: self.introducedPin)
+                    })
+                } else {
+                    self.delegate?.pinKeyboardDidEndEditing(self, pinCode: self.introducedPin)
+                }
             }
         }
     }
@@ -98,6 +104,12 @@ open class TvOSPinKeyboardViewController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+    }
+    
+    // MARK: - Public
+    
+    @objc public func cleanPinStack() {
+        introducedPin = ""
     }
     
     // MARK: - Private
