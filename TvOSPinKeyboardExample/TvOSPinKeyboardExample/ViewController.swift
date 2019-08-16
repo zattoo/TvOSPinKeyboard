@@ -23,6 +23,7 @@ class ViewController: UIViewController, TvOSPinKeyboardViewDelegate {
         pinKeyboard.backgroundView = UIVisualEffectView(effect: backgroundBlurEffectSyle)
         
         pinKeyboard.delegate = self
+        pinKeyboard.callsCancelCompletion = true
         
         present(pinKeyboard, animated: true, completion: nil)
     }
@@ -33,7 +34,7 @@ class ViewController: UIViewController, TvOSPinKeyboardViewDelegate {
         pinLabel.text = "Your Pin Code is: " + pinCode
     }
 
-    func pinKeyboardDidDismiss() {
+    func pinKeyboardDidCancel() {
         pinLabel.text = "Entering Pin Code was cancelled."
     }
 }
