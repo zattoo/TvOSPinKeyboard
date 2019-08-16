@@ -271,8 +271,10 @@ open class TvOSPinKeyboardViewController: UIViewController {
 
     @objc
     func menuButtonWasPressed() {
-        delegate?.pinKeyboardDidDismiss()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            [weak self] in
+            self?.delegate?.pinKeyboardDidDismiss()
+        })
     }
 }
 
