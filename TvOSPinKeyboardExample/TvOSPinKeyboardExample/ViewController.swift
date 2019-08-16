@@ -32,4 +32,8 @@ class ViewController: UIViewController, TvOSPinKeyboardViewDelegate {
     func pinKeyboardDidEndEditing(pinCode: String) {
         pinLabel.text = "Your Pin Code is: " + pinCode
     }
+
+    func pinKeyboardDidDismiss() {
+        pinLabel.text = "Entering Pin Code was cancelled."
+    }
 }
