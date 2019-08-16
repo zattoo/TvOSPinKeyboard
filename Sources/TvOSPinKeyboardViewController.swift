@@ -36,6 +36,7 @@ open class TvOSPinKeyboardViewController: UIViewController {
     public var pinLength = defaultPinLength
 
     public weak var delegate: TvOSPinKeyboardViewDelegate?
+    public var callsCancelCompletion = false
     
     public var backgroundView: UIView!
     
@@ -69,6 +70,7 @@ open class TvOSPinKeyboardViewController: UIViewController {
     private var pinStack: UIStackView!
     private var numpadButtonsStack: UIStackView!
     private var deleteButton: FocusTvButton!
+    private var menuTapGestureRecognizer: UITapGestureRecognizer?
     
     private var introducedPin: String = "" {
         didSet {
@@ -97,6 +99,22 @@ open class TvOSPinKeyboardViewController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+    }
+
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if callsCancelCompletion {
+            setUpGestureRecognizer()
+        }
+    }
+
+    override open func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if callsCancelCompletion, let menuTapGestureRecognizer = menuTapGestureRecognizer {
+            view.removeGestureRecognizer(menuTapGestureRecognizer)
+        }
     }
     
     // MARK: - Private
@@ -187,7 +205,6 @@ open class TvOSPinKeyboardViewController: UIViewController {
     }
     
     private func setUpDeleteButton() {
-        
         deleteButton = numpadButton(withTitle: deleteButtonTitle)
         deleteButton.titleLabel?.font = deleteButtonFont
         
@@ -200,7 +217,6 @@ open class TvOSPinKeyboardViewController: UIViewController {
                                                       right: numpadButtonsPadding)
         
         numpadButtonsStack.addArrangedSubview(deleteButton)
-        
     }
     
     private func numpadButton(withTitle title: String) -> FocusTvButton {
@@ -249,6 +265,15 @@ open class TvOSPinKeyboardViewController: UIViewController {
             titleLabel.centerX == view.centerX
         }
     }
+
+    private func setUpGestureRecognizer() {
+        menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: .menuButtonWasPressed)
+        menuTapGestureRecognizer?.allowedPressTypes = [NSNumber(integerLiteral: UIPress.PressType.menu.rawValue)]
+
+        if let menuTapGestureRecognizer = menuTapGestureRecognizer {
+            view.addGestureRecognizer(menuTapGestureRecognizer)
+        }
+    }
     
     @objc
     func numPadButtonWasPressed(sender: FocusTvButton) {
@@ -261,9 +286,18 @@ open class TvOSPinKeyboardViewController: UIViewController {
     func deleteButtonWasPressed(sender: FocusTvButton) {
         introducedPin = String(introducedPin.dropLast())
     }
+
+    @objc
+    func menuButtonWasPressed() {
+        dismiss(animated: true, completion: {
+            [weak self] in
+            self?.delegate?.pinKeyboardDidCancel()
+        })
+    }
 }
 
 private extension Selector {
     static let numPadButtonWasPressed = #selector(TvOSPinKeyboardViewController.numPadButtonWasPressed)
     static let deleteButtonWasPressed = #selector(TvOSPinKeyboardViewController.deleteButtonWasPressed)
+    static let menuButtonWasPressed = #selector(TvOSPinKeyboardViewController.menuButtonWasPressed)
 }
