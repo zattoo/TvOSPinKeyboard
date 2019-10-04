@@ -11,7 +11,7 @@ TvOSPinKeyboard is a view controller that allows easily asking for PIN codes in 
 ## Requirements
 
 - tvOS 9.0+
-- Xcode 8.2
+- Xcode 11
 
 ## Installation
 
