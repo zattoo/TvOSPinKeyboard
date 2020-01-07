@@ -14,7 +14,7 @@ public protocol TvOSPinKeyboardViewDelegate: class {
     func pinKeyboardDidCancel()
 }
 
-extension TvOSPinKeyboardViewDelegate {
+public extension TvOSPinKeyboardViewDelegate {
 
     func pinKeyboardDidCancel() {
         // override by subclass

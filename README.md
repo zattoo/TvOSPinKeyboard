@@ -25,7 +25,7 @@ platform :tvos, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'TvOSPinKeyboard', '~> 2.0.0'
+    pod 'TvOSPinKeyboard', '~> 2.0.1'
 end
 ```
 
