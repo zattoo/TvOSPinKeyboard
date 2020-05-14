@@ -207,6 +207,7 @@ open class TvOSPinKeyboardViewController: UIViewController {
     private func setUpDeleteButton() {
         deleteButton = numpadButton(withTitle: deleteButtonTitle)
         deleteButton.accessibilityIdentifier = "PinKeyboard.Button.Delete"
+        deleteButton.accessibilityLabel = "Delete"
         deleteButton.titleLabel?.font = deleteButtonFont
         
         deleteButton.sizeToFit()
