@@ -11,4 +11,12 @@ import Foundation
 public protocol TvOSPinKeyboardViewDelegate: class {
     
     func pinKeyboardDidEndEditing(pinCode: String)
+    func pinKeyboardDidCancel()
+}
+
+public extension TvOSPinKeyboardViewDelegate {
+
+    func pinKeyboardDidCancel() {
+        // override by subclass
+    }
 }
