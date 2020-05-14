@@ -8,9 +8,14 @@ PODS:
 DEPENDENCIES:
   - TvOSPinKeyboard (from `..`)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Cartography
+    - FocusTvButton
+
 EXTERNAL SOURCES:
   TvOSPinKeyboard:
-    :path: ..
+    :path: ".."
 
 SPEC CHECKSUMS:
   Cartography: d295eb25ab54bb57eecd8c2f04e9648c850f1281
@@ -19,4 +24,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 49f6d32eb08ef7bbd4e3d5b84f30ea450f8e2179
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.8.4

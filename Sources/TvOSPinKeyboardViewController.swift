@@ -189,6 +189,7 @@ open class TvOSPinKeyboardViewController: UIViewController {
     private func setUpDeleteButton() {
         
         deleteButton = numpadButton(withTitle: deleteButtonTitle)
+        deleteButton.accessibilityIdentifier = "PinKeyboard.Button.Delete"
         deleteButton.titleLabel?.font = deleteButtonFont
         
         deleteButton.sizeToFit()
@@ -206,6 +207,7 @@ open class TvOSPinKeyboardViewController: UIViewController {
     private func numpadButton(withTitle title: String) -> FocusTvButton {
         let numpadButton = FocusTvButton()
         numpadButton.setTitle(title, for: .normal)
+        numpadButton.accessibilityIdentifier = "PinKeyboard.Button.\(title)"
         numpadButton.sizeToFit()
         numpadButton.titleLabel?.font = numpadFont
         numpadButton.normalTitleColor = buttonsNormalTitleColor
