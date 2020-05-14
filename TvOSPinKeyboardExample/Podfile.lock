@@ -1,7 +1,7 @@
 PODS:
   - Cartography (4.0.0)
   - FocusTvButton (3.0.0)
-  - TvOSPinKeyboard (2.0.1):
+  - TvOSPinKeyboard (2.0.2):
     - Cartography (~> 4.0.0)
     - FocusTvButton (~> 3.0.0)
 
@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Cartography: c5626d29056b20f1e95c017326ee4df57cc39ad8
   FocusTvButton: 028a088a4a0ac382f2e3c0c45dbd2a420dee98af
-  TvOSPinKeyboard: 51e189ef254255ae9343a6bfaea8ae5fc6f49a78
+  TvOSPinKeyboard: 2005e49fea86b48a0fb25f1674f9330d4e7b9659
 
 PODFILE CHECKSUM: 49f6d32eb08ef7bbd4e3d5b84f30ea450f8e2179
 
