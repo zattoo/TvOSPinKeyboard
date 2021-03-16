@@ -15,6 +15,8 @@ private let defaultTitleFont: UIFont = .boldSystemFont(ofSize: 50)
 private let defaultTitleColor: UIColor = .white
 private let defaultSubtitleFont: UIFont = .systemFont(ofSize: 30)
 private let defaultSubtitleColor: UIColor = .white
+private let defaultLegalInfoFont: UIFont = .systemFont(ofSize: 30)
+private let defaultLegalInfoColor: UIColor = .white
 private let defaultPinFont: UIFont = .boldSystemFont(ofSize: 50)
 private let defaultPinColor: UIColor = .black
 private let defaultPinBackgroundColor: UIColor = .white
@@ -45,6 +47,9 @@ open class TvOSPinKeyboardViewController: UIViewController {
     
     public var subtitleFont = defaultSubtitleFont
     public var subtitleColor = defaultSubtitleColor
+
+    public var legalInfoFont = defaultLegalInfoFont
+    public var legalInfoColor = defaultLegalInfoColor
     
     public var pinFont = defaultPinFont
     public var pinColor = defaultPinColor
@@ -65,8 +70,10 @@ open class TvOSPinKeyboardViewController: UIViewController {
     
     private var subject: String?
     private var message: String?
+    private var legalInfo: String?
     private var titleLabel: UILabel!
     private var subtitleLabel: UILabel!
+    private var legalInfoLabel: UILabel!
     private var pinStack: UIStackView!
     private var numpadButtonsStack: UIStackView!
     private var deleteButton: FocusTvButton!
@@ -87,11 +94,12 @@ open class TvOSPinKeyboardViewController: UIViewController {
         }
     }
     
-    convenience public init(withTitle title: String, message: String) {
+    convenience public init(withTitle title: String, message: String, legalInfo: String? = nil) {
         self.init()
         
         self.subject = title
         self.message = message
+        self.legalInfo = legalInfo
     }
     
     // MARK: - UIViewController
@@ -123,6 +131,7 @@ open class TvOSPinKeyboardViewController: UIViewController {
         setUpBackgroundView()
         setUpTitleLabel()
         setUpSubtitleLabel()
+        setUpLegalInfoLabel()
         setUpPinStack()
         setUpNumpadButtonsStack()
         setUpDeleteButton()
@@ -154,6 +163,16 @@ open class TvOSPinKeyboardViewController: UIViewController {
         subtitleLabel.textAlignment = .center
         subtitleLabel.numberOfLines = 0
         view.addSubview(subtitleLabel)
+    }
+
+    private func setUpLegalInfoLabel() {
+        legalInfoLabel = UILabel()
+        legalInfoLabel.text = legalInfo ?? ""
+        legalInfoLabel.font = legalInfoFont
+        legalInfoLabel.textColor = legalInfoColor
+        legalInfoLabel.textAlignment = .center
+        legalInfoLabel.numberOfLines = 0
+        view.addSubview(legalInfoLabel)
     }
     
     private func setUpPinStack() {
@@ -266,6 +285,12 @@ open class TvOSPinKeyboardViewController: UIViewController {
             titleLabel, subtitleLabel, view in
             titleLabel.bottom == subtitleLabel.top - 18
             titleLabel.centerX == view.centerX
+        }
+
+        constrain(legalInfoLabel, pinStack, view) {
+            legalInfoLabel, pinStack, view in
+            pinStack.bottom == legalInfoLabel.top - 300
+            legalInfoLabel.centerX == view.centerX
         }
     }
 
