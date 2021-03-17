@@ -15,8 +15,8 @@ private let defaultTitleFont: UIFont = .boldSystemFont(ofSize: 50)
 private let defaultTitleColor: UIColor = .white
 private let defaultSubtitleFont: UIFont = .systemFont(ofSize: 30)
 private let defaultSubtitleColor: UIColor = .white
-private let defaultLegalInfoFont: UIFont = .systemFont(ofSize: 30)
-private let defaultLegalInfoColor: UIColor = .white
+private let defaultFooterTextFont: UIFont = .systemFont(ofSize: 30)
+private let defaultFooterTextColor: UIColor = .white
 private let defaultPinFont: UIFont = .boldSystemFont(ofSize: 50)
 private let defaultPinColor: UIColor = .black
 private let defaultPinBackgroundColor: UIColor = .white
@@ -48,8 +48,8 @@ open class TvOSPinKeyboardViewController: UIViewController {
     public var subtitleFont = defaultSubtitleFont
     public var subtitleColor = defaultSubtitleColor
 
-    public var legalInfoFont = defaultLegalInfoFont
-    public var legalInfoColor = defaultLegalInfoColor
+    public var footerTextFont = defaultFooterTextFont
+    public var footerTextColor = defaultFooterTextColor
     
     public var pinFont = defaultPinFont
     public var pinColor = defaultPinColor
@@ -70,10 +70,10 @@ open class TvOSPinKeyboardViewController: UIViewController {
     
     private var subject: String?
     private var message: String?
-    private var legalInfo: String?
+    private var footerText: String?
     private var titleLabel: UILabel!
     private var subtitleLabel: UILabel!
-    private var legalInfoLabel: UILabel!
+    private var footerLabel: UILabel!
     private var pinStack: UIStackView!
     private var numpadButtonsStack: UIStackView!
     private var deleteButton: FocusTvButton!
@@ -94,12 +94,12 @@ open class TvOSPinKeyboardViewController: UIViewController {
         }
     }
     
-    convenience public init(withTitle title: String, message: String, legalInfo: String? = nil) {
+    convenience public init(withTitle title: String, message: String, footerText: String? = nil) {
         self.init()
         
         self.subject = title
         self.message = message
-        self.legalInfo = legalInfo
+        self.footerText = footerText
     }
     
     // MARK: - UIViewController
@@ -131,7 +131,7 @@ open class TvOSPinKeyboardViewController: UIViewController {
         setUpBackgroundView()
         setUpTitleLabel()
         setUpSubtitleLabel()
-        setUpLegalInfoLabel()
+        setUpFooterLabel()
         setUpPinStack()
         setUpNumpadButtonsStack()
         setUpDeleteButton()
@@ -165,14 +165,14 @@ open class TvOSPinKeyboardViewController: UIViewController {
         view.addSubview(subtitleLabel)
     }
 
-    private func setUpLegalInfoLabel() {
-        legalInfoLabel = UILabel()
-        legalInfoLabel.text = legalInfo ?? ""
-        legalInfoLabel.font = legalInfoFont
-        legalInfoLabel.textColor = legalInfoColor
-        legalInfoLabel.textAlignment = .center
-        legalInfoLabel.numberOfLines = 0
-        view.addSubview(legalInfoLabel)
+    private func setUpFooterLabel() {
+        footerLabel = UILabel()
+        footerLabel.text = footerText ?? ""
+        footerLabel.font = footerTextFont
+        footerLabel.textColor = footerTextColor
+        footerLabel.textAlignment = .center
+        footerLabel.numberOfLines = 0
+        view.addSubview(footerLabel)
     }
     
     private func setUpPinStack() {
@@ -287,10 +287,10 @@ open class TvOSPinKeyboardViewController: UIViewController {
             titleLabel.centerX == view.centerX
         }
 
-        constrain(legalInfoLabel, pinStack, view) {
-            legalInfoLabel, pinStack, view in
-            pinStack.bottom == legalInfoLabel.top - 300
-            legalInfoLabel.centerX == view.centerX
+        constrain(footerLabel, pinStack, view) {
+            footerLabel, pinStack, view in
+            pinStack.bottom == footerLabel.top - 300
+            footerLabel.centerX == view.centerX
         }
     }
 
