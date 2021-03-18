@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.3] - 2021-18-03
+
+Add a footer text to the view
+
 ## [2.0.2] - 2020-14-05
 
 Add Accessibilty for better voice over support and UITest integrations.
