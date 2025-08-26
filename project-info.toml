@@ -17,9 +17,6 @@ contact = [
 ]
 
 [tool.zattoo-artifact-catalog.relations]
-consumes-api = [
-  "Apple::UIKit",
-]
 provides-api = [
   "TvOSPinKeyboard::API",
 ]
