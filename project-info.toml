@@ -1,0 +1,22 @@
+[project]
+name = "TvOSPinKeyboard"
+description = "PIN keyboard for tvOS"
+maintainers = [
+  {name = "Topic Apple Maintenance"},
+]
+
+[project.urls]
+Documentation = "https://github.com/zattoo/TvOSPinKeyboard/blob/master/README.md"
+
+[tool.zattoo-artifact-catalog.metadata]
+type = "library"
+language = "Swift"
+lifecycle = "production"
+contact = [
+  {type = "Slack channel", name = "#topic-apple-maintenance"},
+]
+
+[tool.zattoo-artifact-catalog.relations]
+provides-api = [
+  "TvOSPinKeyboard::API",
+]
